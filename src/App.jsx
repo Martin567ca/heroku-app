@@ -4,6 +4,7 @@ import axios from 'axios';
 import L from 'leaflet';
 import dotenv from 'dotenv';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import config from '../configs'
 var x;
 var y;
 dotenv.config();
@@ -65,7 +66,7 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
-        axios.post(window.location.hostname+"/app/lookupget",lookupComplete)
+        axios.post(`${config.SERVER_URI}/app/lookupget`,lookupComplete)
         .then(function(response){
             
             for(var i=0;i<response.data.length;i++){
