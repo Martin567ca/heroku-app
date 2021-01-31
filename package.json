@@ -6,10 +6,14 @@
   "scripts": {
     "build": "cd front && npm install && npm run build",
     "install-client": "cd front && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "cd front && npm install --only=dev && NODE_ENV=development npm install --no-shrinkwrap && npm run build",
     "start": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\"",
     "client": "cd front && npm start"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "front/node_modules"
+  ],
   "author": "Maci",
   "license": "ISC",
   "dependencies": {
