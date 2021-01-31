@@ -10,4 +10,4 @@ Copy . .
 
 Expose 4000
 
-Cmd ["node","server.js"]
+Cmd ["npm","start"]
