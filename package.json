@@ -5,14 +5,14 @@
   "main": "server.js",
   "scripts": {
     "build": "cd front && npm install && npm run build",
-    "install-client": "cd front && npm install --only=dev && NODE_ENV=development npm install --no-shrinkwrap ",
-    "heroku-postbuild": "cd front && npm install --only=dev && NODE_ENV=development npm install --no-shrinkwrap && npm run build",
+    "install-client": "cd front && npm install",
+    "heroku-postbuild": "cd front/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\"",
     "client": "cd front && npm start"
   },
   "cacheDirectories": [
     "node_modules",
-    "front/node_modules"
+    "front/react"
   ],
   "author": "Maci",
   "license": "ISC",
