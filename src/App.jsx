@@ -8,7 +8,7 @@ var x;
 var y;
 var test = "test";
 const PORT = process.env.PORT;
-const postURL =  PORT + ":/app/lookupget"; 
+const postURL =  window.location.href+":"+PORT + "/app/lookupget"; 
 console.log(postURL)
 dotenv.config();
 navigator.geolocation.getCurrentPosition(
