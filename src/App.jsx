@@ -7,7 +7,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 var x;
 var y;
 dotenv.config();
-axios.defaults.baseURL='https://finki-final-app.herokuapp.com/';
+axios.defaults.baseURL=process.env.VUE_APP_API_ENDPOINT;
 navigator.geolocation.getCurrentPosition(
     function(position){
         
@@ -65,7 +65,7 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
-        axios.post("/app/lookupget",lookupComplete)
+        axios.post(window.location.hostname+"/app/lookupget",lookupComplete)
         .then(function(response){
             
             for(var i=0;i<response.data.length;i++){
