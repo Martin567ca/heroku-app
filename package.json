@@ -4,12 +4,11 @@
   "description": "Application",
   "main": "server.js",
   "scripts": {
-    "build": "cd front && npm run build",
+    "build": "cd front && npm install && npm run build",
     "install-client": "cd front && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\"",
-    "client": "cd front && npm start",
-    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
+    "client": "cd front && npm start"
   },
   "author": "Maci",
   "license": "ISC",
