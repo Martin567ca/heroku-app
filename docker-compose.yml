@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend:
+    env_file:
+      "./back/.env"
+    build:
+      context: ./back
+      dockerfile: ./back/Dockerfile
+    image: "justthetip21/backend"
+    ports:
+      - "4000:4000"
+  frontend:
+    build:
+      context: ./front
+      dockerfile: ./front/Dockerfile
+    image: "justthetip21/frontend"
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - backend
+    links:
+      - "backend:be"
+
+      
