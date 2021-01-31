@@ -6,10 +6,6 @@ import dotenv from 'dotenv';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 var x;
 var y;
-var test = "test";
-const PORT = process.env.PORT;
-const postURL =  window.location.href+":"+PORT + "/app/lookupget"; 
-console.log(postURL)
 dotenv.config();
 navigator.geolocation.getCurrentPosition(
     function(position){
@@ -68,7 +64,7 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
-        axios.post(postURL,lookupComplete)
+        axios.post("/app/lookupget",lookupComplete)
         .then(function(response){
             
             for(var i=0;i<response.data.length;i++){
