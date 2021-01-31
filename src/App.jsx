@@ -7,6 +7,7 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 var x;
 var y;
 dotenv.config();
+axios.defaults.baseURL=window.location.href();
 navigator.geolocation.getCurrentPosition(
     function(position){
         
