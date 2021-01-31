@@ -3,10 +3,10 @@ version: '3'
 services:
   backend:
     env_file:
-      "./back/.env"
+      "./.env"
     build:
-      context: ./back
-      dockerfile: ./back/Dockerfile
+      context: ./
+      dockerfile: ./Dockerfile
     image: "justthetip21/backend"
     ports:
       - "4000:4000"
