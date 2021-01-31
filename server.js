@@ -9,7 +9,7 @@ const path = require('path');
 
 dotenv.config()
 
-mongoose.connect(process.env.MONGODB_URI ||process.env.DATABASE_ACCESS, ()=>console.log("Database connected"))
+mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_ACCESS, ()=>console.log("Database connected"))
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('/front/build'))
