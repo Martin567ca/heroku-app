@@ -12,10 +12,6 @@ dotenv.config()
 mongoose.connect(process.env.MONGODB_URI ||process.env.DATABASE_ACCESS, ()=>console.log("Database connected"))
 
 
-    app.use(express.static(path.resolve(__dirname,'/front/build')))
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'front/build','index.html'));
-    })
 
 
 app.use(express.json())
