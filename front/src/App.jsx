@@ -6,8 +6,8 @@ import dotenv from 'dotenv';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 var x;
 var y;
-const PORT = process.env.PORT || 5000;
-const postURL =  "http://localhost:"+PORT+"/app/lookupget"; 
+const PORT = process.env.PORT || 4000;
+const postURL =  "http://finki-final-app.herokuapp.com:"+PORT+"/app/lookupget" || "http://localhost:"+PORT+"/app/lookupget"; 
 console.log(postURL)
 dotenv.config();
 navigator.geolocation.getCurrentPosition(
