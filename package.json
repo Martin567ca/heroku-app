@@ -8,7 +8,7 @@
     "build": "cd front && npm run build",
     "install-client": "cd front && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "nodemon server.js",
+    "start": "nodemon server.js && npm run client",
     "client": "cd front && npm start",
     "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
   },
