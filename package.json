@@ -4,11 +4,13 @@
   "description": "Application",
   "main": "server.js",
   "scripts": {
-    "build": "cd front && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd front && npm run build",
     "install-client": "cd front && npm install",
-    "heroku-postbuild": "cd front/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "start": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\"",
-    "client": "cd front && npm start"
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "nodemon server.js",
+    "client": "cd front && npm start",
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
   },
   "cacheDirectories": [
     "node_modules",
