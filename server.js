@@ -13,9 +13,14 @@ mongoose.connect(process.env.MONGODB_URI ||process.env.DATABASE_ACCESS, ()=>cons
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('/front/build'))
-    app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,'front','build','index.html'));
-    })
+    // app.get('*',(req,res)=>{
+    //     res.sendFile(path.join(__dirname,'front','build','index.html'));
+    // })
+}else{
+    app.use(express.static('/front/build'))
+    // app.get('*',(req,res)=>{
+    //     res.sendFile(path.join(__dirname,'front','build','index.html'));
+    // })
 }
 
 app.use(express.json())
