@@ -1,4 +1,4 @@
-POST http://localhost:4000/app/lookupget
+POST https://finki-final-app.herokuapp.com/app/lookupget
 Content-Type: application/json
 
 {
