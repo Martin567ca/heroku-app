@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "proxy":"https://finki-final-app.herokuapp.com/",
+  "proxy":"http://localhost:4000/",
   "browserslist": {
     "production": [
       ">0.2%",
