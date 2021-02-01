@@ -71,7 +71,7 @@ class App extends Component {
         const options = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             body:lookupComplete
         }
@@ -89,19 +89,19 @@ class App extends Component {
 
             }
         });
-        axios.post(baseUrl,lookupComplete)
-        .then(function(response){
+        // axios.post(baseUrl,lookupComplete)
+        // .then(function(response){
             
-            for(var i=0;i<response.data.length;i++){
+        //     for(var i=0;i<response.data.length;i++){
                 
-                var a = response.data[i].["@lon"];
-                var b = response.data[i].["@lat"];
+        //         var a = response.data[i].["@lon"];
+        //         var b = response.data[i].["@lat"];
                 
-                var marker = L.marker([b,a],{icon:myIcon}).addTo(layerG);
-                marker.bindPopup("<b>"+response.data[i].name+"</b><br>")
+        //         var marker = L.marker([b,a],{icon:myIcon}).addTo(layerG);
+        //         marker.bindPopup("<b>"+response.data[i].name+"</b><br>")
 
-            }
-        });
+        //     }
+        // });
 
         this.setState({
             buildingType:''
