@@ -8,6 +8,7 @@ import config from '../configs'
 var x;
 var y;
 dotenv.config();
+
 const baseUrl = "/app/lookupget";
 navigator.geolocation.getCurrentPosition(
     function(position){
@@ -66,6 +67,29 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body:lookupComplete
+        }
+
+        fetch(baseUrl,options)
+        .then(function(response){
+            
+            for(var i=0;i<response.data.length;i++){
+                
+                var a = response.data[i].["@lon"];
+                var b = response.data[i].["@lat"];
+                
+                var marker = L.marker([b,a],{icon:myIcon}).addTo(layerG);
+                marker.bindPopup("<b>"+response.data[i].name+"</b><br>")
+
+            }
+        });
         axios.post(baseUrl,lookupComplete)
         .then(function(response){
             
