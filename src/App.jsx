@@ -8,7 +8,7 @@ import config from '../configs'
 var x;
 var y;
 dotenv.config();
-axios.defaults.baseURL=process.env.VUE_APP_API_ENDPOINT;
+const baseUrl = "/app/lookupget";
 navigator.geolocation.getCurrentPosition(
     function(position){
         
@@ -66,7 +66,7 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
-        axios.post(`${config.SERVER_URI}/app/lookupget`,lookupComplete)
+        axios.post(baseUrl,lookupComplete)
         .then(function(response){
             
             for(var i=0;i<response.data.length;i++){
