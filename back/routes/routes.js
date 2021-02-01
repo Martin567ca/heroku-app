@@ -4,7 +4,13 @@ const lookupTemp = require('../models/lookupModels');
 const mongo = require('mongodb');
 var url = 'mongodb+srv://Martin:finki21@cluster0.bzvbz.mongodb.net/macedonia?retryWrites=true&w=majority';
 
+// This is where our api requests are handled
 
+// We have a request path with POST method (and an experimenal post route for saving data to DB 
+// - > used to test the DB at start of project, might have use in the future)
+// -> you can open the test.http file in the /back area of the project, edit the location to /api/lookup and test this out
+// Our post method handles requests made to the base URL + /api/lookupget path 
+// and this is where the response is determined (retrieving the data from DB)
 router.post('/lookupget',function(request,response,next){
     try{
         mongo.connect(url,function(err,db){       

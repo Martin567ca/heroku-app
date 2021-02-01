@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+
+// Unused mongodb schema
+
 const lookupTemplate = new mongoose.Schema({
     buildingType:{
         type:String,

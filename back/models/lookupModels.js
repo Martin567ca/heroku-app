@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+
+// Mongodb schema used to search through database
+
 const lookupTemplate = new mongoose.Schema({
     buildingType:{
         type:String,

@@ -7,7 +7,13 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 var x;
 var y;
 dotenv.config();
+
+// Our main react app is designed here.
+
+
 const baseUrl = "/app/lookupget";
+
+// Function to get your location
 navigator.geolocation.getCurrentPosition(
     function(position){
         
@@ -19,6 +25,8 @@ navigator.geolocation.getCurrentPosition(
         console.error("Error code = " + error.code + " - "+ error.message)
     }
 );
+
+// Map creation using leaflet
 
 var mymap = L.map('mapid').setView([41.975, 21.464], 13);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -39,6 +47,7 @@ var myIcon = L.icon({
  
 })
 
+// Main react component
 
 class App extends Component {
     constructor(){
@@ -57,6 +66,8 @@ class App extends Component {
         })
     }
 
+    // The search event
+
     onSubmit(event){
         event.preventDefault()
         layerG.clearLayers();
@@ -65,6 +76,9 @@ class App extends Component {
             locationX:x,
             locationY:y
         }
+
+        // Axios post method sending the search data with your location coordinates
+
         axios.post(baseUrl,lookupComplete)
         .then(function(response){
             
@@ -84,6 +98,8 @@ class App extends Component {
         })
     }
 
+    // This is used to render html code 
+    
     render(){
 
         
